@@ -40,11 +40,4 @@ public class Player {
         this.position = position;
     }
 
-//        public String getPosition() {
-//        return this.position.name();
-//    }
-//
-//    public void setPosition(String pos){
-//        this.position = PositionType.valueOf(pos);
-//    }
 }

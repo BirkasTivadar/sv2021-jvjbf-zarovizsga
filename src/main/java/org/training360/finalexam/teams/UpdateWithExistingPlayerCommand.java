@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class UpdateWithExistingPlayerCommand {
 
-    private Long playerId;
+    private long playerId;
 
-    private Long teamId;
+    private long teamId;
 }
