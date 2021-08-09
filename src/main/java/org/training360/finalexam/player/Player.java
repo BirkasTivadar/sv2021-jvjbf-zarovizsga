@@ -2,7 +2,7 @@ package org.training360.finalexam.player;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
-import org.training360.finalexam.team.Team;
+import org.training360.finalexam.teams.Team;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -18,10 +18,14 @@ public class Player {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "player_name")
     private String name;
 
+    @Column(name = "birth_date")
     private LocalDate birthDate;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "player_pos")
     private PositionType position;
 
     @ManyToOne
@@ -35,4 +39,12 @@ public class Player {
         this.birthDate = birthDate;
         this.position = position;
     }
+
+//        public String getPosition() {
+//        return this.position.name();
+//    }
+//
+//    public void setPosition(String pos){
+//        this.position = PositionType.valueOf(pos);
+//    }
 }

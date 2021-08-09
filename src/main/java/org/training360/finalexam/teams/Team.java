@@ -1,4 +1,4 @@
-package org.training360.finalexam.team;
+package org.training360.finalexam.teams;
 
 
 import lombok.AllArgsConstructor;
@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import org.training360.finalexam.player.Player;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -20,6 +21,7 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "team_name")
     private String name;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "team")
@@ -27,5 +29,13 @@ public class Team {
 
     public Team(String name) {
         this.name = name;
+    }
+
+    public void addPlayer(Player player) {
+        if (players == null) {
+            players = new ArrayList<>();
+        }
+        players.add(player);
+        player.setTeam(this);
     }
 }

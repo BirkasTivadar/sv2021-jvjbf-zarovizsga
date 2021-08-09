@@ -14,16 +14,16 @@ public class PlayersService {
 
     private PlayersRepository repository;
 
-    public List<PlayerDto> getPlayerList() {
+    public List<PlayerDTO> getPlayerList() {
         return repository.findAll().stream()
-                .map(player -> modelMapper.map(player, PlayerDto.class))
+                .map(player -> modelMapper.map(player, PlayerDTO.class))
                 .toList();
     }
 
-    public PlayerDto createPlayer(CreatePlayerCommand command) {
+    public PlayerDTO createPlayer(CreatePlayerCommand command) {
         Player player = new Player(command.getName(), command.getBirthDate(), command.getPosition());
         repository.save(player);
-        return modelMapper.map(player, PlayerDto.class);
+        return modelMapper.map(player, PlayerDTO.class);
     }
 
     public void deletePlayer(long id) {

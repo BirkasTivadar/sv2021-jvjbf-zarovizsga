@@ -17,13 +17,13 @@ public class PlayersController {
     }
 
     @GetMapping
-    public List<PlayerDto> getPlayerList() {
+    public List<PlayerDTO> getPlayerList() {
         return playersService.getPlayerList();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public PlayerDto createPlayer(@Valid @RequestBody CreatePlayerCommand command) {
+    public PlayerDTO createPlayer(@Valid @RequestBody CreatePlayerCommand command) {
         return playersService.createPlayer(command);
     }
 
