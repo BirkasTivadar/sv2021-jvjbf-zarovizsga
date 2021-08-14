@@ -32,7 +32,7 @@ public class PlayersController {
         return playersService.createPlayer(command);
     }
 
-    @DeleteMapping({"id"})
+    @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletePlayer(@PathVariable("id") long id) {
         playersService.deletePlayer(id);
