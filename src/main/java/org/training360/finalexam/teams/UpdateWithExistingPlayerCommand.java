@@ -11,6 +11,4 @@ import lombok.NoArgsConstructor;
 public class UpdateWithExistingPlayerCommand {
 
     private long playerId;
-
-    private long teamId;
 }
