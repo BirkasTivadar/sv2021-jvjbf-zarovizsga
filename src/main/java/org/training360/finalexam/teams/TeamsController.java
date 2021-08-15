@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.training360.finalexam.player.CreatePlayerCommand;
 import org.training360.finalexam.player.PlayerDTO;
 import org.zalando.problem.Problem;
 import org.zalando.problem.Status;
@@ -34,7 +35,7 @@ public class TeamsController {
     }
 
     @PostMapping("{id}/players")
-    public PlayerDTO addNewPlayer(@PathVariable("id") long id, @Valid @RequestBody AddNewPlayerCommand command){
+    public PlayerDTO addNewPlayer(@PathVariable("id") long id, @ Valid @RequestBody CreatePlayerCommand command){
         return teamsService.addNewPlayer(id, command);
     }
 

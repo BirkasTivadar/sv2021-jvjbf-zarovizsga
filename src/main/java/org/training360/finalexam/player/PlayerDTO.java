@@ -1,5 +1,6 @@
 package org.training360.finalexam.player;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import org.training360.finalexam.teams.TeamDTO;
 
@@ -18,5 +19,6 @@ public class PlayerDTO {
 
     private PositionType position;
 
+    @JsonBackReference
     private TeamDTO team;
 }

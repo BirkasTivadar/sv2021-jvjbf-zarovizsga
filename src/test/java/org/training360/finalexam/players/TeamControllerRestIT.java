@@ -12,6 +12,7 @@ import org.training360.finalexam.player.CreatePlayerCommand;
 import org.training360.finalexam.player.PlayerDTO;
 import org.training360.finalexam.player.PositionType;
 import org.training360.finalexam.teams.CreateTeamCommand;
+import org.training360.finalexam.teams.Team;
 import org.training360.finalexam.teams.TeamDTO;
 import org.training360.finalexam.teams.UpdateWithExistingPlayerCommand;
 import org.zalando.problem.Problem;
@@ -81,8 +82,8 @@ public class TeamControllerRestIT {
 
         assertThat(resultWithPlayer.getPlayers()).extracting(PlayerDTO::getName)
                 .containsExactly("John Doe");
-
     }
+
 
     @Test
     void testAddExistingPlayerToExistingTeam() {
@@ -110,7 +111,6 @@ public class TeamControllerRestIT {
         assertThat(result.get(0).getPlayers()).extracting(PlayerDTO::getName)
                 .containsExactly("John Doe");
     }
-
 
     @Test
     void testAddExistingPlayerWithTeam() {

@@ -31,7 +31,6 @@ public class Player {
     @ManyToOne
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    @JsonBackReference
     private Team team;
 
     public Player(String name, LocalDate birthDate, PositionType position) {

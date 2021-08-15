@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.training360.finalexam.player.CreatePlayerCommand;
 import org.training360.finalexam.player.Player;
 import org.training360.finalexam.player.PlayerDTO;
+import org.training360.finalexam.player.PlayersRepository;
 
 import java.util.List;
 
@@ -16,6 +18,8 @@ public class TeamsService {
     private ModelMapper modelMapper;
 
     private TeamsRepository repository;
+
+    private PlayersRepository playersRepository;
 
     public List<TeamDTO> getTeamList() {
         return repository.findAll().stream()
@@ -30,9 +34,10 @@ public class TeamsService {
     }
 
     @Transactional
-    public PlayerDTO addNewPlayer(long id, AddNewPlayerCommand command) {
+    public PlayerDTO addNewPlayer(long id, CreatePlayerCommand command) {
         Team team = repository.findById(id).orElseThrow(() -> new IllegalArgumentException("Not found team with id: " + id));
         Player player = new Player(command.getName(), command.getBirthDate(), command.getPosition());
+//        playersRepository.save(player);
         team.addPlayer(player);
         return modelMapper.map(player, PlayerDTO.class);
     }
